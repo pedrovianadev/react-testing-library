@@ -4,18 +4,18 @@ import renderWithRouter from './helpers/renderWithRouter';
 import { About } from '../pages';
 
 describe('Testa o componente <About.js />.', () => {
-  test('Testa se a página contém as informações sobre a Pokédex', () => {
-    renderWithRouter(<About />);
-
-    const about = screen.getByText(/This application simulates a Pokédex, a digital encyclopedia containing all Pokémon/i);
-    expect(about).toBeInTheDocument();
-  });
-
   test('Testa se a página contém um heading h2 com o texto About Pokédex', () => {
     renderWithRouter(<About />);
 
     const heading = screen.getByRole('heading', { level: 2, name: /about pokédex/i });
     expect(heading).toBeInTheDocument();
+  });
+
+  test('Testa se a página contém as informações sobre a Pokédex', () => {
+    renderWithRouter(<About />);
+
+    const about = screen.getByText(/This application simulates a Pokédex, a digital encyclopedia containing all Pokémon/i);
+    expect(about).toBeInTheDocument();
   });
 
   test('Testa se a página contém dois parágrafos com texto sobre a Pokédex', () => {
